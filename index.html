@@ -1,210 +1,172 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Voting OSIS SMP Negeri 9 Denpasar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>E-Voting OSIS SMP Negeri 9 Denpasar</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- LANDSCAPE -->
+<!-- WARNING PORTRAIT -->
 
-    <div id="rotate-warning">
+<div id="rotate-warning">
+    <h1>📱↔️</h1>
+    <h2>Silakan Putar HP ke Mode Landscape</h2>
+    <p>E-Voting hanya dapat digunakan dalam posisi horizontal.</p>
+</div>
 
-        <h1>📱↔️</h1>
+<!-- HALAMAN WELCOME -->
 
-        <h2>
-            Silakan Putar HP ke Mode Landscape
-        </h2>
+<div id="welcome">
+
+    <div class="welcome-box">
+
+        <div class="header-logo">
+
+            <img src="img/logo1.png" class="logo-kiri">
+
+            <div class="judul-area">
+                <h1>Selamat Datang 👋</h1>
+            </div>
+
+            <img src="img/logo2.png" class="logo-kanan">
+
+        </div>
+
+        <h3>
+            di Aplikasi E-Voting OSIS
+            SMP Negeri 9 Denpasar
+        </h3>
 
         <p>
-            E-Voting hanya dapat digunakan
-            dalam posisi horizontal.
+            Satu suaramu menentukan masa depan sekolah kita.
+            Gunakan hak pilihmu dengan bijak, jujur dan adil.
+        </p>
+
+        <button onclick="mulaiVoting()">
+            Mulai Voting
+        </button>
+
+    </div>
+
+</div>
+
+<!-- HALAMAN VOTING -->
+
+<div id="voting">
+
+    <h1>
+        Calon Ketua OSIS Masa Bakti 2026/2027
+    </h1>
+
+    <div class="kandidat">
+
+        <div class="card">
+
+            <img src="img/calon1.jpg">
+
+            <h2>Nomor 1</h2>
+
+            <h4>Nama Ketua - Nama Wakil</h4>
+
+            <p>"Maju Bersama"</p>
+
+            <button onclick="detailPaslon(1)">Detail</button>
+            <button onclick="pilih(1)">Pilih</button>
+
+        </div>
+
+        <div class="card">
+
+            <img src="img/calon2.jpg">
+
+            <h2>Nomor 2</h2>
+
+            <h4>Nama Ketua - Nama Wakil</h4>
+
+            <p>"OSIS Kreatif"</p>
+
+            <button onclick="detailPaslon(2)">Detail</button>
+            <button onclick="pilih(2)">Pilih</button>
+
+        </div>
+
+        <div class="card">
+
+            <img src="img/calon3.jpg">
+
+            <h2>Nomor 3</h2>
+
+            <h4>Nama Ketua - Nama Wakil</h4>
+
+            <p>"Siswa Berprestasi"</p>
+
+            <button onclick="detailPaslon(3)">Detail</button>
+            <button onclick="pilih(3)">Pilih</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- DETAIL -->
+
+<div id="detailModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2 id="judulPaslon"></h2>
+
+        <p id="isiPaslon"></p>
+
+        <button onclick="tutupDetail()">Tutup</button>
+
+    </div>
+
+</div>
+
+<!-- KONFIRMASI -->
+
+<div id="confirmModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Apakah kamu yakin dengan pilihanmu?</h2>
+
+        <button id="btnYa">Ya</button>
+
+        <button onclick="tutupKonfirmasi()">Tidak</button>
+
+    </div>
+
+</div>
+
+<!-- TERIMA KASIH -->
+
+<div id="terimakasih">
+
+    <div class="thanks-box">
+<div class="thanks-title">
+    <span>🎉</span>
+    <h1>Terima Kasih</h1>
+    <span>🎉</span>
+</div>
+       
+
+        <p>
+            Terima kasih telah ikut berpartisipasi dalam
+            Pemilihan Ketua OSIS SMP Negeri 9 Denpasar Tahun 2026
         </p>
 
     </div>
 
-    <!-- HALAMAN SAMBUTAN -->
+</div>
 
-    <div id="welcome">
-
-        <div class="welcome-box">
-
-            <img src="img/logo.png" class="logo">
-
-            <h1>Selamat Datang 👋</h1>
-
-            <h3>
-                di Aplikasi E-Voting OSIS
-                SMP Negeri 9 Denpasar
-            </h3>
-
-            <p>
-                Satu suaramu menentukan masa depan sekolah kita.
-                Gunakan hak pilihmu dengan bijak,
-                jujur dan adil.
-            </p>
-
-            <button onclick="mulaiVoting()">
-                Mulai Voting
-            </button>
-
-        </div>
-
-    </div>
-
-    <!-- HALAMAN VOTING -->
-
-    <div id="voting">
-
-        <h1>
-            Calon Ketua OSIS
-            Masa Bakti 2026/2027
-        </h1>
-
-        <div class="kandidat">
-
-            <!-- PASLON 1 -->
-
-            <div class="card">
-
-                <img src="img/calon1.jpg">
-
-                <h2>Nomor 1</h2>
-
-                <h4>Nama Ketua - Nama Wakil</h4>
-
-                <p>
-                    "Maju Bersama"
-                </p>
-
-                <button onclick="detailPaslon(1)">
-                    Detail
-                </button>
-
-                <button onclick="pilih(1)">
-                    Pilih
-                </button>
-
-            </div>
-
-            <!-- PASLON 2 -->
-
-            <div class="card">
-
-                <img src="img/calon2.jpg">
-
-                <h2>Nomor 2</h2>
-
-                <h4>Nama Ketua - Nama Wakil</h4>
-
-                <p>
-                    "OSIS Kreatif"
-                </p>
-
-                <button onclick="detailPaslon(2)">
-                    Detail
-                </button>
-
-                <button onclick="pilih(2)">
-                    Pilih
-                </button>
-
-            </div>
-
-            <!-- PASLON 3 -->
-
-            <div class="card">
-
-                <img src="img/calon3.jpg">
-
-                <h2>Nomor 3</h2>
-
-                <h4>Nama Ketua - Nama Wakil</h4>
-
-                <p>
-                    "Siswa Berprestasi"
-                </p>
-
-                <button onclick="detailPaslon(3)">
-                    Detail
-                </button>
-
-                <button onclick="pilih(3)">
-                    Pilih
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- MODAL DETAIL -->
-
-    <div id="detailModal" class="modal">
-
-        <div class="modal-content">
-
-            <h2 id="judulPaslon"></h2>
-
-            <p id="isiPaslon"></p>
-
-            <button onclick="tutupDetail()">
-                Tutup
-            </button>
-
-        </div>
-
-    </div>
-
-    <!-- MODAL KONFIRMASI -->
-
-    <div id="confirmModal" class="modal">
-
-        <div class="modal-content">
-
-            <h2>
-                Apakah kamu yakin
-                dengan pilihanmu?
-            </h2>
-
-            <button id="btnYa">
-                Ya
-            </button>
-
-            <button onclick="tutupKonfirmasi()">
-                Tidak
-            </button>
-
-        </div>
-
-    </div>
-
-    <!-- TERIMA KASIH -->
-
-    <div id="terimakasih">
-
-        <div class="thanks-box">
-
-            <h1>🎉 Terima Kasih 🎉</h1>
-
-            <p>
-                Terima kasih telah ikut berpartisipasi
-                dalam Pemilihan Ketua OSIS
-                SMP Negeri 9 Denpasar Tahun 2026
-            </p>
-
-        </div>
-
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
-
 </html>
