@@ -2,7 +2,7 @@ let pilihanSekarang = null;
 
 // URL Apps Script
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbz_KvW1tSSuMGuELxG3GhuffYb_v9S3X0QCOR2KKOEFZkBjwW-vlK9JE4b7f8f93xmIXA/exec";
+  "https://script.google.com/macros/s/AKfycbxial3qdo9sYGGb47EsFn-zzQp7jTeao8ExyIpeKLBfcT7T7MKp7EHw4Q6EwsolZr_MFw/exec";
 
 function mulaiVoting() {
   document.getElementById("welcome").style.display = "none";
@@ -57,30 +57,24 @@ document.getElementById("btnYa").onclick = function () {
 
   document.getElementById("confirmModal").style.display = "none";
 
-  fetch(API_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      paslon: pilihanSekarang
+  fetch(API_URL + "?paslon=" + pilihanSekarang)
+    .then(() => {
+
+      console.log(
+        "Vote berhasil untuk Paslon",
+        pilihanSekarang
+      );
+
+      document.getElementById("voting").style.display = "none";
+      document.getElementById("terimakasih").style.display = "flex";
+
     })
-  })
-  .then(() => {
+    .catch((error) => {
 
-    console.log("Vote berhasil dikirim");
+      console.error(error);
 
-    document.getElementById("voting").style.display = "none";
-    document.getElementById("terimakasih").style.display = "flex";
+      alert("Gagal mengirim suara");
 
-  })
-  .catch((error) => {
-
-    console.error(error);
-
-    alert("Gagal mengirim suara ke Spreadsheet");
-
-  });
+    });
 
 };
