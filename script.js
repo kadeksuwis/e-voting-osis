@@ -2,7 +2,7 @@ let pilihanSekarang = null;
 
 // URL Apps Script
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbyJO3T9iV2EdGu8AaFxR8_GSbe_K3PiW1m8iLQ8kA9QbKIoCvsGyq6ogtvOV3TQZhduEA/exec";
+  "https://script.google.com/macros/s/AKfycbz_KvW1tSSuMGuELxG3GhuffYb_v9S3X0QCOR2KKOEFZkBjwW-vlK9JE4b7f8f93xmIXA/exec";
 
 function mulaiVoting() {
   document.getElementById("welcome").style.display = "none";
